@@ -1,2 +1,3 @@
-# my-practice-c-
-Some C# (Winform) exercises
+# My practice C#
+
+**This's just a backup repo to recover in need ✌**

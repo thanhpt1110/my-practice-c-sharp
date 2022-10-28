@@ -1,4 +1,4 @@
-﻿namespace Create_file_explorer
+﻿namespace BaiLT_Drawing_21520455_PhanTuanThanh
 {
     partial class Form1
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Create_file_explorer
+namespace BaiLT_Drawing_21520455_PhanTuanThanh
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace Create_file_explorer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new Form1());
         }
     }
 }

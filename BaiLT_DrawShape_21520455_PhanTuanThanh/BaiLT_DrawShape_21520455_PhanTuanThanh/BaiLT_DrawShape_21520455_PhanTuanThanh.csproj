@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27C7DA01-53FB-480A-A870-5CE6DFAC3EA6}</ProjectGuid>
+    <ProjectGuid>{90A2E7B6-9695-4560-B274-BFACB7F612CA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Create_file_explorer</RootNamespace>
-    <AssemblyName>Create_file_explorer</AssemblyName>
+    <RootNamespace>BaiLT_DrawShape_21520455_PhanTuanThanh</RootNamespace>
+    <AssemblyName>BaiLT_DrawShape_21520455_PhanTuanThanh</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Create_file_explorer")]
+[assembly: AssemblyTitle("Windows_Explorer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Create_file_explorer")]
+[assembly: AssemblyProduct("Windows_Explorer")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("27c7da01-53fb-480a-a870-5ce6dfac3ea6")]
+[assembly: Guid("1cffd4bc-63eb-4671-a0dc-29cfa659a3d3")]
 
 // Version information for an assembly consists of the following four values:
 //

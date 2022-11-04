@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Create_file_explorer
+namespace Windows_Explorer
 {
     internal static class Program
     {

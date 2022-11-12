@@ -54,14 +54,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(187)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridViewSV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewSV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewSV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(197)))), ((int)(((byte)(200)))));
             this.dataGridViewSV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewSV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewSV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -88,7 +87,7 @@
             this.dataGridViewSV.Name = "dataGridViewSV";
             this.dataGridViewSV.ReadOnly = true;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(197)))), ((int)(((byte)(200)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(187)))), ((int)(((byte)(195)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -116,6 +115,7 @@
             this.ColumnMSSV.ReadOnly = true;
             this.ColumnMSSV.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnMSSV.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnMSSV.Width = 205;
             // 
             // ColumnTen
             // 
@@ -125,6 +125,7 @@
             this.ColumnTen.ReadOnly = true;
             this.ColumnTen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnTen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnTen.Width = 261;
             // 
             // ColumnLop
             // 
@@ -134,6 +135,7 @@
             this.ColumnLop.ReadOnly = true;
             this.ColumnLop.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnLop.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnLop.Width = 150;
             // 
             // ColumnDiem
             // 
@@ -143,6 +145,7 @@
             this.ColumnDiem.ReadOnly = true;
             this.ColumnDiem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ColumnDiem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnDiem.Width = 205;
             // 
             // FormDanhSach
             // 

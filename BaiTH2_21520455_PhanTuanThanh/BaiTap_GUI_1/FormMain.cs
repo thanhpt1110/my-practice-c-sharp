@@ -71,7 +71,12 @@ namespace BaiTap_GUI_1
         {
             disableButtonSidebar();
             activateButtonSidebar(sender);
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thoát ứng dụng không?", "Student Info",
+                                                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+                this.Close();
+            else
+                this.buttonThoat.BackColor = Color.FromArgb(44, 156, 163);
         }
 
         private void activateButtonSidebar(object btnSender)
@@ -80,7 +85,7 @@ namespace BaiTap_GUI_1
             {
                 Button currentButton = (Button)btnSender;
                 currentButton = (Button)btnSender;
-                currentButton.BackColor = Color.FromArgb(52, 187, 195);
+                currentButton.BackColor = Color.FromArgb(62, 224, 234);
             }
         }
 

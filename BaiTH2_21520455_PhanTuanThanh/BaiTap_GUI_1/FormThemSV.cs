@@ -13,9 +13,9 @@ using System.Text.RegularExpressions;
 
 namespace BaiTap_GUI_1
 {
-    public partial class FormSave : System.Windows.Forms.Form
+    public partial class FormThemSV : System.Windows.Forms.Form
     { 
-        public FormSave()
+        public FormThemSV()
         {
             InitializeComponent();
         }
@@ -53,7 +53,7 @@ namespace BaiTap_GUI_1
             string data = File.ReadAllText("ThongTinSV.txt");
             if (data.Contains(sinhVien.MSSV))
             {
-                MessageBox.Show("Đã tồn tại MSSV này! Nếu muốn đổi thông tin hãy qua mục chỉnh sửa.", "Thông báo",
+                MessageBox.Show("Đã tồn tại MSSV này! Nếu muốn đổi thông tin hãy qua mục 'Sửa thông tin'.", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -82,12 +82,9 @@ namespace BaiTap_GUI_1
             }
         }
 
-        private void ButtonBackClick(object sender, EventArgs e)
+        private void FormThemSV_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu formMenu = new FormMenu();
-            formMenu.ShowDialog();
-            this.Close(); 
+            this.buttonSave.Cursor = Cursors.Hand;
         }
     }
 }

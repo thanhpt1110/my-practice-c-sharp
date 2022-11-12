@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace BaiTap_GUI_1
 {
-    public partial class FormUpdate : Form
+    public partial class FormSuaThongTin : Form
     {
         
-        public FormUpdate()
+        public FormSuaThongTin()
         {
             InitializeComponent();
         }
@@ -130,12 +130,9 @@ namespace BaiTap_GUI_1
             this.textBoxScore.Text = null;
         }
 
-        private void ButtonBack_Click(object sender, EventArgs e)
+        private void FormSuaThongTin_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu formMenu = new FormMenu();
-            formMenu.ShowDialog();
-            this.Close();
+            this.ButtonUpdate.Cursor = Cursors.Hand;
         }
     }
 }

@@ -13,17 +13,32 @@ using System.Text.RegularExpressions;
 
 namespace BaiTap_GUI_1
 {
-    public partial class FormFind : Form
+    public partial class FormTimThongTin : Form
     {
 
-        public FormFind()
+        public FormTimThongTin()
         {
             InitializeComponent();
+            this.textBoxMSSV.Enabled = false;
+            this.textBoxName.Enabled = false;
+            this.textBoxScore.Enabled = false;
+            this.textBoxClass.Enabled = false;
         }
 
         private void ButtonFindMSSV_Click(object sender, EventArgs e)
         {
-            string mssv = this.textBoxFindMSSV.Text;
+            string mssv = null;
+            try
+            {
+                mssv = this.textBoxFindMSSV.Text;
+                CheckString.ValidateMSSV(mssv);
+            }
+            catch (CheckString)
+            {
+                MessageBox.Show("Dữ liệu nhập vào không hợp lệ!", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string[] lines = File.ReadAllLines("ThongTinSV.txt");
 
             bool found = false;
@@ -33,6 +48,12 @@ namespace BaiTap_GUI_1
                 if (words[0] == mssv)
                 {
                     found = true;
+
+                    this.textBoxMSSV.Enabled = true;
+                    this.textBoxName.Enabled = true;
+                    this.textBoxScore.Enabled = true;
+                    this.textBoxClass.Enabled = true;
+
                     this.textBoxMSSV.Text = words[0];
                     this.textBoxName.Text = words[1];
                     this.textBoxClass.Text = words[2];
@@ -45,12 +66,9 @@ namespace BaiTap_GUI_1
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ButtonBack_Click(object sender, EventArgs e)
+        private void FormTimThongTin_Load(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenu formMenu = new FormMenu();
-            formMenu.ShowDialog();
-            this.Close();
+            this.ButtonFindMSSV.Cursor = Cursors.Hand;
         }
     }
 }

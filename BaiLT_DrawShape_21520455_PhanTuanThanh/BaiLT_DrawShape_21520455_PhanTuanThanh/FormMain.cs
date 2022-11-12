@@ -51,8 +51,6 @@ namespace BaiLT_DrawShape_21520455_PhanTuanThanh
         {
             if (splitContainer1.SplitterDistance > 370)
                 splitContainer1.SplitterDistance = 370;
-            if (splitContainer1.SplitterDistance < 220)
-                splitContainer1.SplitterDistance = 220;
         }
 
 

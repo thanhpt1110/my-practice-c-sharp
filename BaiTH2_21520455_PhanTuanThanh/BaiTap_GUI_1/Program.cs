@@ -11,6 +11,11 @@ namespace BaiTap_GUI_1
     {
         public string MSSV, Name, Class;
         public double Score;
+
+        public override string ToString()
+        {
+            return this.MSSV + "-" + this.Name + "-" + this.Class + "-" + this.Score.ToString();
+        }
     }
 
     public class CheckString : Exception
@@ -41,7 +46,7 @@ namespace BaiTap_GUI_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            Application.Run(new FormMain());
         }
     }
 }

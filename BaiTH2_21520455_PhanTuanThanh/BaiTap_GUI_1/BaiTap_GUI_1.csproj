@@ -46,43 +46,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormFind.cs">
+    <Compile Include="FormDanhSach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFind.Designer.cs">
-      <DependentUpon>FormFind.cs</DependentUpon>
+    <Compile Include="FormDanhSach.Designer.cs">
+      <DependentUpon>FormDanhSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenu.cs">
+    <Compile Include="FormTimThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
+    <Compile Include="FormTimThongTin.Designer.cs">
+      <DependentUpon>FormTimThongTin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSave.cs">
+    <Compile Include="FormThemSV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSave.Designer.cs">
-      <DependentUpon>FormSave.cs</DependentUpon>
+    <Compile Include="FormThemSV.Designer.cs">
+      <DependentUpon>FormThemSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpdate.cs">
+    <Compile Include="FormSuaThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUpdate.Designer.cs">
-      <DependentUpon>FormUpdate.cs</DependentUpon>
+    <Compile Include="FormSuaThongTin.Designer.cs">
+      <DependentUpon>FormSuaThongTin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXoaSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXoaSV.Designer.cs">
+      <DependentUpon>FormXoaSV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormFind.resx">
-      <DependentUpon>FormFind.cs</DependentUpon>
+    <EmbeddedResource Include="FormDanhSach.resx">
+      <DependentUpon>FormDanhSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
+    <EmbeddedResource Include="FormTimThongTin.resx">
+      <DependentUpon>FormTimThongTin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSave.resx">
-      <DependentUpon>FormSave.cs</DependentUpon>
+    <EmbeddedResource Include="FormThemSV.resx">
+      <DependentUpon>FormThemSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdate.resx">
-      <DependentUpon>FormUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="FormSuaThongTin.resx">
+      <DependentUpon>FormSuaThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXoaSV.resx">
+      <DependentUpon>FormXoaSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -50,8 +50,20 @@ namespace BaiTap_GUI_1
                 }
             }
 
-            string data = File.ReadAllText("ThongTinSV.txt");
-            if (data.Contains(sinhVien.MSSV))
+            string[] lines = File.ReadAllLines("ThongTinSV.txt");
+            bool found = false;
+
+            string[] words;
+            for (int i = 0; i < lines.Length; ++i)
+            {
+                words = lines[i].Split('-');
+                if (words[0] == this.textBoxMSSV.Text)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
             {
                 MessageBox.Show("Đã tồn tại MSSV này! Nếu muốn đổi thông tin hãy qua mục 'Sửa thông tin'.", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,8 +77,8 @@ namespace BaiTap_GUI_1
             this.textBoxClass.Text = null;
             this.textBoxScore.Text = null;
 
-            string[] words = {sinhVien.MSSV, sinhVien.Name, sinhVien.Class, sinhVien.Score.ToString()};
-            data = String.Join("-", words);
+            string[] joinWords = {sinhVien.MSSV, sinhVien.Name, sinhVien.Class, sinhVien.Score.ToString()};
+            string data = String.Join("-", joinWords);
 
             // Check file exist or not
             if (!File.Exists("ThongTinSV.txt"))

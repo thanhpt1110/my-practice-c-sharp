@@ -38,78 +38,97 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
                 ball.Draw(g);
         }
 
+        /*1: Down
+        2: Up
+        3: Left
+        4: Right
+        5: Up + Right
+        6: Up + Left
+        7: Down + Right 
+        8: Down + Left
+        => 	
+        Cạnh dưới cùng: sẽ đc đi các hướng 2, 5, 6 
+        Cạnh trên cùng: sẽ đc đi các hướng 1, 7, 8 
+        Cạnh bên trái: _____ 4, 5, 7
+        Cạnh bên phải: _____ 3, 6, 8*/
+
+        int[] topEdge = new int[3] { 1, 7, 8 };
+        int[] botEdge = new int[3] { 2, 5, 6 };
+        int[] leftEdge = new int[3] { 4, 5, 7 };
+        int[] rightEdge = new int[3] { 3, 6, 8 };
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             int MaxWidth = this.ClientSize.Width;
             int MaxHeight = this.ClientSize.Height;
+
             foreach (Ball ball in balls)
             {
-                if (ball.Down1 == true)
+                // Update Coordinate
+                switch (ball.Type)
                 {
-                    if (ball.Y < MaxHeight - 55) ball.Down();
-                    else ball.Down1 = false;
+                    case 1:
+                        ball.Down();
+                        ball.Down1 = true;
+                        ball.Right1 = false;
+                        break;
+                    case 2:
+                        ball.Up();
+                        ball.Down1 = false;
+                        ball.Right1 = false;
+                        break;  
+                    case 3:
+                        ball.Left();
+                        ball.Down1 = false;
+                        ball.Right1 = false;
+                        break;
+                    case 4:
+                        ball.Right();
+                        ball.Down1 = false;
+                        ball.Right1 = true;
+                        break;
+                    case 5:
+                        ball.Right();
+                        ball.Up();
+                        ball.Down1 = false;
+                        ball.Right1 = true;
+                        break;
+                    case 6:
+                        ball.Left();
+                        ball.Up();
+                        ball.Down1 = false;
+                        ball.Right1 = false;
+                        break;
+                    case 7:
+                        ball.Right();
+                        ball.Down();
+                        ball.Down1 = true;
+                        ball.Right1 = true;
+                        break;
+                    case 8:
+                        ball.Left();
+                        ball.Down();
+                        ball.Down1 = true;
+                        ball.Right1 = false;
+                        break;
+                    default:
+                        break;
                 }
-                else
-                {
-                    if (ball.Y > 0) ball.Up();
-                    else ball.Down1 = true;
-                }
+
+                Random rnd = new Random();    
+                int idx = rnd.Next(0, 3);
+
+                if (ball.Y >= MaxHeight - 55)
+                    ball.Type = botEdge[idx];
+                else if (ball.Y <= 0)
+                    ball.Type = topEdge[idx];
+                else if (ball.X <= 0)
+                    ball.Type= leftEdge[idx];
+                else if (ball.X >= MaxWidth - 55)
+                    ball.Type = rightEdge[idx];
+
             }
             this.Invalidate();
-        }
-    }
-
-    class Ball
-    {
-        private int x, y, rad, type;
-        private Color color;
-        private bool down, right;
-
-        public Ball(int x, int y, int rad, Color color, bool down)
-        {
-            this.X = x;
-            this.Y = y;
-            this.Rad = rad;
-            this.Color = color;
-            this.Down1 = down;
-        }
-
-        public int X { get => x; set => x = value; }
-        public int Y { get => y; set => y = value; }
-        public int Rad { get => rad; set => rad = value; }
-        public int Type { get => type; set => type = value; }
-        public Color Color { get => color; set => color = value; }
-        public bool Down1 { get => down; set => down = value; }
-        public bool Right1 { get => right; set => right = value; }
-
-        public void Draw(Graphics g)
-        {
-            g.FillEllipse(new SolidBrush(this.Color), X, Y, Rad, Rad);
-        }
-
-        public int getType()
-        {
-            return 0;
-        }
-
-        public void Up()
-        {
-            this.Y -= 5;
-        }
-
-        public void Down()
-        {
-            this.Y += 5;
-        }
-
-        public void Left()
-        {
-            this.X -= 5;
-        }
-
-        public void Right()
-        {
-            this.X += 5;    
         }
     }
 }

@@ -64,7 +64,6 @@
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colCreatedDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colModifiedDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -202,7 +201,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -253,6 +252,7 @@
             this.toolStripButtonCut.Name = "toolStripButtonCut";
             this.toolStripButtonCut.Size = new System.Drawing.Size(46, 22);
             this.toolStripButtonCut.Text = "Cut";
+            this.toolStripButtonCut.Click += new System.EventHandler(this.toolStripButtonCut_Click);
             // 
             // toolStripButtonPaste
             // 
@@ -269,6 +269,7 @@
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
             this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
             this.toolStripButtonDelete.Text = "Delete";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // toolStripDropDownButtonViews
             // 
@@ -340,7 +341,6 @@
             this.colName,
             this.colType,
             this.colSize,
-            this.colCreatedDate,
             this.colModifiedDate});
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.HideSelection = false;
@@ -364,12 +364,7 @@
             // colSize
             // 
             this.colSize.Text = "Size";
-            this.colSize.Width = 100;
-            // 
-            // colCreatedDate
-            // 
-            this.colCreatedDate.Text = "Created Date";
-            this.colCreatedDate.Width = 200;
+            this.colSize.Width = 119;
             // 
             // colModifiedDate
             // 
@@ -391,6 +386,7 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Windows Explorer";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -441,7 +437,6 @@
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colType;
         private System.Windows.Forms.ColumnHeader colSize;
-        private System.Windows.Forms.ColumnHeader colCreatedDate;
         private System.Windows.Forms.ColumnHeader colModifiedDate;
     }
 }

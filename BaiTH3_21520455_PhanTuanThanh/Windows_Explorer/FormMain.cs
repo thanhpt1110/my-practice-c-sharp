@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Windows_Explorer
 {
@@ -61,7 +62,7 @@ namespace Windows_Explorer
             {
                 item = new ListViewItem(dir.Name, 0);
                 subItems = new ListViewItem.ListViewSubItem[]
-                {
+                {   
                     new ListViewItem.ListViewSubItem(item, "Directory"),
                     new ListViewItem.ListViewSubItem(item, dir.LastAccessTime.ToShortDateString())
                 };
@@ -75,6 +76,7 @@ namespace Windows_Explorer
                 subItems = new ListViewItem.ListViewSubItem[]
                 {
                     new ListViewItem.ListViewSubItem(item, "File"),
+                    new ListViewItem.ListViewSubItem(item, file.Length.ToString()),  
                     new ListViewItem.ListViewSubItem(item, file.LastAccessTime.ToShortDateString())
                 };
                 item.SubItems.AddRange(subItems);
@@ -86,6 +88,27 @@ namespace Windows_Explorer
         {
             MessageBox.Show("App của Tuấn Thành :D", "Thông tin",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonCut_Click(object sender, EventArgs e)
+        {
+            // Adds new node as a child node of the currently selected node.  
+            TreeNode newNode = new TreeNode("Text for new node");
+            treeView.SelectedNode.Nodes.Add(newNode);
+        }
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            // Removes currently selected node, or root if nothing
+            // is selected.  
+            treeView.Nodes.Remove(treeView.SelectedNode);
+            // Clears all nodes.  
+            //TreeView1.Nodes.Clear();
         }
     }
 }

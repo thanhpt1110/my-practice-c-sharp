@@ -46,16 +46,16 @@
             // timerFall
             // 
             this.timerFall.Enabled = true;
-            this.timerFall.Interval = 10;
+            this.timerFall.Interval = 50;
             this.timerFall.Tick += new System.EventHandler(this.timerFall_Tick);
             // 
             // picJetAir
             // 
             this.picJetAir.BackColor = System.Drawing.Color.Transparent;
             this.picJetAir.Image = ((System.Drawing.Image)(resources.GetObject("picJetAir.Image")));
-            this.picJetAir.Location = new System.Drawing.Point(322, 811);
+            this.picJetAir.Location = new System.Drawing.Point(350, 850);
             this.picJetAir.Name = "picJetAir";
-            this.picJetAir.Size = new System.Drawing.Size(157, 138);
+            this.picJetAir.Size = new System.Drawing.Size(80, 80);
             this.picJetAir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picJetAir.TabIndex = 0;
             this.picJetAir.TabStop = false;

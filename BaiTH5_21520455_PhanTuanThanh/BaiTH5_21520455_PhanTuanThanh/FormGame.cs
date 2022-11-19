@@ -18,6 +18,9 @@ namespace BaiTH5_21520455_PhanTuanThanh
         }
 
         List<Stone> stones = new List<Stone>();
+        List<Bullet> bullets = new List<Bullet>();
+        // picJetAir is the player 
+
         private void createStone()
         {
             Random rnd = new Random();
@@ -31,6 +34,8 @@ namespace BaiTH5_21520455_PhanTuanThanh
             Graphics g = e.Graphics;
             foreach (Stone stone in stones)
                 stone.Draw(g);
+            foreach (Bullet bullet in bullets)
+                bullet.Draw(g);
         }
 
         private void timerAppear_Tick(object sender, EventArgs e)
@@ -43,31 +48,42 @@ namespace BaiTH5_21520455_PhanTuanThanh
             for (int i = 0; i < stones.Count; ++i)
             {
                 if (stones[i].Y >= this.ClientSize.Height - 100)
-                {
-                    stones.RemoveAt(i);
-                    --i;
-                }
+                    stones.Remove(stones[i]);
                 else
                     stones[i].Y += 5;
             }
-            this.Invalidate();
+            for (int i = 0; i < bullets.Count; ++i)
+            {
+                if (bullets[i].Y >= 10)
+                    bullets[i].Up();
+                else
+                    bullets.Remove(bullets[i]);
+            }
+            this.Refresh();
         }
 
-        private bool moveLeft = false, moveRight = false, moveUp = false, moveDown = false;
         private void timerMove_Tick(object sender, EventArgs e)
         {
             if (moveLeft == true && picJetAir.Left > 0)
-                this.picJetAir.Left -= 5;
+                this.picJetAir.Left -= 10;
             if (moveRight == true && picJetAir.Right < this.ClientSize.Width)
-                this.picJetAir.Left += 5;
-            if (moveLeft == true && picJetAir.Left > 0)
-                this.picJetAir.Left -= 5;
-            if (moveLeft == true && picJetAir.Left > 0)
-                this.picJetAir.Left -= 5;
+                this.picJetAir.Left += 10;
+            if (moveUp == true && picJetAir.Top > 0)
+                this.picJetAir.Top -= 10;
+            if (moveDown == true && picJetAir.Top < this.ClientSize.Height - imgHeight)
+                this.picJetAir.Top += 10;
+            this.Refresh();
         }
 
+        int imgWidth = 80, imgHeight = 80;
+        int posX = 0, posY = 0;
+        private bool moveUp = false, moveDown = false, moveLeft = false, moveRight = false;
+        
         private void keyisdown(object sender, KeyEventArgs e)
         {
+            posX = this.picJetAir.Location.X;
+            posY = this.picJetAir.Location.Y;
+
             if (e.KeyCode == Keys.Left)
                 moveLeft = true;
             if (e.KeyCode == Keys.Right)
@@ -76,6 +92,8 @@ namespace BaiTH5_21520455_PhanTuanThanh
                 moveUp = true;
             if (e.KeyCode == Keys.Down)
                 moveDown = true;
+            if (e.KeyCode == Keys.Space)
+                bullets.Add(new Bullet(posX + imgWidth / 2 - 15, posY));
         }
 
         private void keyisup(object sender, KeyEventArgs e)
@@ -89,42 +107,17 @@ namespace BaiTH5_21520455_PhanTuanThanh
             if (e.KeyCode == Keys.Down)
                 moveDown = false;
         }
-    }
 
-    class Stone
-    {
-        private Bitmap bmp = new Bitmap("Meteorite.png");
-        private int x, y;
-
-        public Stone(int x, int y)
+        private void checkLoseGame()
         {
-            this.X = x;
-            this.Y = y;
+            foreach(Stone stone in stones)
+            {
+                if (stone.Y == picJetAir.Location.Y)
+                {
+                    MessageBox.Show("Game over");
+                    this.Close();
+                }
+            }
         }
-
-        public Bitmap Bmp { get => bmp; set => bmp = value; }
-        public int X { get => x; set => x = value; }
-        public int Y { get => y; set => y = value; }
-
-        public void Draw(Graphics g)
-        {
-            g.DrawImage(bmp, new Point(x, y));
-        }
-    }
-
-    class JetAir
-    {
-        private Bitmap bmp = new Bitmap("jetair");
-        private int x, y;
-
-        public JetAir(int x, int y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
-
-        public Bitmap Bmp { get => bmp; set => bmp = value; }
-        public int X { get => x; set => x = value; }
-        public int Y { get => y; set => y = value; }
     }
 }

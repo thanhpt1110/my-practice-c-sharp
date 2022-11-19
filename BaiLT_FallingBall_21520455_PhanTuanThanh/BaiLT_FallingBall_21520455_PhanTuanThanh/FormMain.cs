@@ -15,6 +15,8 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
         public FormMain()
         {
             InitializeComponent();
+            this.labelInstruction.Visible = true;
+            timer2.Stop();
         }
 
         protected int x = 0;
@@ -22,6 +24,7 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
 
         private void FormMain_MouseClick_1(object sender, MouseEventArgs e)
         {
+            timer2.Start();
             x = e.Location.X - 25;
             y = e.Location.Y - 25;
             int rad = 50;
@@ -129,6 +132,12 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
 
             }
             this.Invalidate();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            this.labelInstruction.Visible = false;
+            timer2.Stop();
         }
     }
 }

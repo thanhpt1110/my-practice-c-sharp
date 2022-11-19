@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
+    <Compile Include="Stone.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,17 +10,14 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
 {
     internal class Ball
     {
-        private int x, y, rad, type = 1;
+        private int x, y, rad = 50, type = 1;
         private Color color;
-        private bool down, right;
-
-        public Ball(int x, int y, int rad, Color color, bool down)
+       
+        public Ball(int x, int y, Color color)
         {
             this.X = x;
             this.Y = y;
-            this.Rad = rad;
             this.Color = color;
-            this.Down1 = down;
         }
 
         public int X { get => x; set => x = value; }
@@ -28,8 +25,6 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
         public int Rad { get => rad; set => rad = value; }
         public int Type { get => type; set => type = value; }
         public Color Color { get => color; set => color = value; }
-        public bool Down1 { get => down; set => down = value; }
-        public bool Right1 { get => right; set => right = value; }
 
         public void Draw(Graphics g)
         {
@@ -37,31 +32,97 @@ namespace BaiLT_FallingBall_21520455_PhanTuanThanh
             g.FillEllipse(new SolidBrush(this.Color), X, Y, Rad, Rad);
         }
 
-        public int getType(int a, int b)
-        {
-            Random rnd = new Random();
-            int x = rnd.Next(a, b);
-            return x;
-        }
-
-        public void Up()
+        public void MoveUp()
         {
             this.Y -= 5;
         }
 
-        public void Down()
+        public void MoveDown()
         {
             this.Y += 5;
         }
 
-        public void Left()
+        public void MoveLeft()
         {
             this.X -= 5;
         }
 
-        public void Right()
+        public void MoveRight()
         {
             this.X += 5;
+        }
+
+        /*
+        1: Down
+        2: Up
+        3: Left
+        4: Right
+        5: Up + Right
+        6: Up + Left
+        7: Down + Right 
+        8: Down + Left
+        => 	
+        Bottom edge can go these directions: 2, 5, 6 
+        Top edge _____: 1, 7, 8 
+        Left edge _____: 4, 5, 7
+        Right edge _____: 3, 6, 8
+        */
+
+        public void UpdateCoordinate()
+        {
+            switch (this.Type)
+            {
+                case 1:
+                    this.MoveDown();
+                    break;
+                case 2:
+                    this.MoveUp();
+                    break;
+                case 3:
+                    this.MoveLeft();
+                    break;
+                case 4:
+                    this.MoveRight();
+                    break;
+                case 5:
+                    this.MoveRight();
+                    this.MoveUp();
+                    break;
+                case 6:
+                    this.MoveLeft();
+                    this.MoveUp();
+                    break;
+                case 7:
+                    this.MoveRight();
+                    this.MoveDown();
+                    break;
+                case 8:
+                    this.MoveLeft();
+                    this.MoveDown();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private int[] topEdge = new int[3] { 1, 7, 8 };
+        private int[] botEdge = new int[3] { 2, 5, 6 };
+        private int[] leftEdge = new int[3] { 4, 5, 7 };
+        private int[] rightEdge = new int[3] { 3, 6, 8 };
+
+        public void CheckDirection(int MaxWidth, int MaxHeight)
+        {
+            Random rnd = new Random();
+            int idx = rnd.Next(0, 3);
+
+            if (this.Y >= MaxHeight - 55)
+                this.Type = botEdge[idx];
+            else if (this.Y <= 0)
+                this.Type = topEdge[idx];
+            else if (this.X <= 0)
+                this.Type = leftEdge[idx];
+            else if (this.X >= MaxWidth - 55)
+                this.Type = rightEdge[idx];
         }
     }
 }

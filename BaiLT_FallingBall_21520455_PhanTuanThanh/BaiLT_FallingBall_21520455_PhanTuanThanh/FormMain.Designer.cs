@@ -47,7 +47,7 @@
             this.labelInstruction.AutoSize = true;
             this.labelInstruction.BackColor = System.Drawing.Color.Transparent;
             this.labelInstruction.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstruction.Location = new System.Drawing.Point(256, 247);
+            this.labelInstruction.Location = new System.Drawing.Point(256, 236);
             this.labelInstruction.Name = "labelInstruction";
             this.labelInstruction.Size = new System.Drawing.Size(478, 40);
             this.labelInstruction.TabIndex = 0;
@@ -63,13 +63,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 533);
+            this.ClientSize = new System.Drawing.Size(984, 511);
             this.Controls.Add(this.labelInstruction);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bouncing Ball";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseClick_1);

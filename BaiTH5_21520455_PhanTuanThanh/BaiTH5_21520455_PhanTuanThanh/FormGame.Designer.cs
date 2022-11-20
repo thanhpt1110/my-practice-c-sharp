@@ -34,6 +34,9 @@
             this.timerFall = new System.Windows.Forms.Timer(this.components);
             this.picJetAir = new System.Windows.Forms.PictureBox();
             this.timerMove = new System.Windows.Forms.Timer(this.components);
+            this.labelScore = new System.Windows.Forms.Label();
+            this.timerExplode = new System.Windows.Forms.Timer(this.components);
+            this.timerShooting = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picJetAir)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +69,30 @@
             this.timerMove.Interval = 10;
             this.timerMove.Tick += new System.EventHandler(this.timerMove_Tick);
             // 
+            // labelScore
+            // 
+            this.labelScore.BackColor = System.Drawing.Color.Transparent;
+            this.labelScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelScore.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScore.ForeColor = System.Drawing.Color.Yellow;
+            this.labelScore.Location = new System.Drawing.Point(25, 30);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(190, 50);
+            this.labelScore.TabIndex = 1;
+            this.labelScore.Text = "Score: ";
+            // 
+            // timerExplode
+            // 
+            this.timerExplode.Enabled = true;
+            this.timerExplode.Interval = 500;
+            this.timerExplode.Tick += new System.EventHandler(this.timerExplode_Tick);
+            // 
+            // timerShooting
+            // 
+            this.timerShooting.Enabled = true;
+            this.timerShooting.Interval = 20;
+            this.timerShooting.Tick += new System.EventHandler(this.timerShooting_Tick);
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -74,6 +101,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 961);
             this.Controls.Add(this.picJetAir);
+            this.Controls.Add(this.labelScore);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -96,6 +124,9 @@
         private System.Windows.Forms.Timer timerFall;
         private System.Windows.Forms.PictureBox picJetAir;
         private System.Windows.Forms.Timer timerMove;
+        private System.Windows.Forms.Label labelScore;
+        private System.Windows.Forms.Timer timerExplode;
+        private System.Windows.Forms.Timer timerShooting;
     }
 }
 

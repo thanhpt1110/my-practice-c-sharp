@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
+    <Compile Include="Explode.cs" />
     <Compile Include="Stone.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>

@@ -30,19 +30,16 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelNgayVaoLam = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxNgVL = new System.Windows.Forms.TextBox();
             this.labelHoTen = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxHoTen = new System.Windows.Forms.TextBox();
             this.labelNgaySinh = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNgSinh = new System.Windows.Forms.TextBox();
             this.labelMSNV = new System.Windows.Forms.Label();
             this.textBoxMSNV = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnMSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNgSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNgVL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -50,19 +47,20 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.labelNgayVaoLam);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.textBoxNgVL);
             this.panel1.Controls.Add(this.labelHoTen);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBoxHoTen);
             this.panel1.Controls.Add(this.labelNgaySinh);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxNgSinh);
             this.panel1.Controls.Add(this.labelMSNV);
             this.panel1.Controls.Add(this.textBoxMSNV);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 183);
+            this.panel1.Size = new System.Drawing.Size(764, 229);
             this.panel1.TabIndex = 0;
             // 
             // labelNgayVaoLam
@@ -74,12 +72,13 @@
             this.labelNgayVaoLam.TabIndex = 7;
             this.labelNgayVaoLam.Text = "Ngày vào làm:";
             // 
-            // textBox3
+            // textBoxNgVL
             // 
-            this.textBox3.Location = new System.Drawing.Point(450, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(202, 29);
-            this.textBox3.TabIndex = 6;
+            this.textBoxNgVL.Location = new System.Drawing.Point(450, 116);
+            this.textBoxNgVL.Name = "textBoxNgVL";
+            this.textBoxNgVL.ReadOnly = true;
+            this.textBoxNgVL.Size = new System.Drawing.Size(202, 29);
+            this.textBoxNgVL.TabIndex = 6;
             // 
             // labelHoTen
             // 
@@ -90,12 +89,13 @@
             this.labelHoTen.TabIndex = 5;
             this.labelHoTen.Text = "Họ tên:";
             // 
-            // textBox2
+            // textBoxHoTen
             // 
-            this.textBox2.Location = new System.Drawing.Point(450, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 29);
-            this.textBox2.TabIndex = 4;
+            this.textBoxHoTen.Location = new System.Drawing.Point(450, 36);
+            this.textBoxHoTen.Name = "textBoxHoTen";
+            this.textBoxHoTen.ReadOnly = true;
+            this.textBoxHoTen.Size = new System.Drawing.Size(202, 29);
+            this.textBoxHoTen.TabIndex = 4;
             // 
             // labelNgaySinh
             // 
@@ -106,12 +106,13 @@
             this.labelNgaySinh.TabIndex = 3;
             this.labelNgaySinh.Text = "Ngày sinh:";
             // 
-            // textBox1
+            // textBoxNgSinh
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 29);
-            this.textBox1.TabIndex = 2;
+            this.textBoxNgSinh.Location = new System.Drawing.Point(114, 116);
+            this.textBoxNgSinh.Name = "textBoxNgSinh";
+            this.textBoxNgSinh.ReadOnly = true;
+            this.textBoxNgSinh.Size = new System.Drawing.Size(202, 29);
+            this.textBoxNgSinh.TabIndex = 2;
             // 
             // labelMSNV
             // 
@@ -126,6 +127,7 @@
             // 
             this.textBoxMSNV.Location = new System.Drawing.Point(114, 33);
             this.textBoxMSNV.Name = "textBoxMSNV";
+            this.textBoxMSNV.ReadOnly = true;
             this.textBoxMSNV.Size = new System.Drawing.Size(202, 29);
             this.textBoxMSNV.TabIndex = 0;
             // 
@@ -133,10 +135,10 @@
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 183);
+            this.panel2.Location = new System.Drawing.Point(0, 229);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(20);
-            this.panel2.Size = new System.Drawing.Size(764, 338);
+            this.panel2.Size = new System.Drawing.Size(764, 292);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -145,46 +147,25 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnMSNV,
-            this.ColumnHoTen,
-            this.ColumnNgSinh,
-            this.ColumnNgVL});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(724, 298);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(724, 252);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // ColumnMSNV
+            // buttonDelete
             // 
-            this.ColumnMSNV.HeaderText = "Mã số NV";
-            this.ColumnMSNV.Name = "ColumnMSNV";
-            this.ColumnMSNV.ReadOnly = true;
-            this.ColumnMSNV.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnHoTen
-            // 
-            this.ColumnHoTen.HeaderText = "Họ tên";
-            this.ColumnHoTen.Name = "ColumnHoTen";
-            this.ColumnHoTen.ReadOnly = true;
-            this.ColumnHoTen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnNgSinh
-            // 
-            this.ColumnNgSinh.HeaderText = "Ngày sinh";
-            this.ColumnNgSinh.Name = "ColumnNgSinh";
-            this.ColumnNgSinh.ReadOnly = true;
-            this.ColumnNgSinh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnNgVL
-            // 
-            this.ColumnNgVL.HeaderText = "Ngày vào làm";
-            this.ColumnNgVL.Name = "ColumnNgVL";
-            this.ColumnNgVL.ReadOnly = true;
-            this.ColumnNgVL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.buttonDelete.Location = new System.Drawing.Point(656, 180);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(88, 29);
+            this.buttonDelete.TabIndex = 8;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // Form1
             // 
@@ -215,18 +196,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelNgayVaoLam;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxNgVL;
         private System.Windows.Forms.Label labelHoTen;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxHoTen;
         private System.Windows.Forms.Label labelNgaySinh;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNgSinh;
         private System.Windows.Forms.Label labelMSNV;
         private System.Windows.Forms.TextBox textBoxMSNV;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMSNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgSinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNgVL;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 

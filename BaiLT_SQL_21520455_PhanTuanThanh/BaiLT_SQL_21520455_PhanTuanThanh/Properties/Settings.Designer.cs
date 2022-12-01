@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Windows_Explorer.Properties
+namespace BaiLT_SQL_21520455_PhanTuanThanh.Properties
 {
 
 

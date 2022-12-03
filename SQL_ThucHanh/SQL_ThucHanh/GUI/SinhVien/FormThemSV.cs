@@ -32,9 +32,6 @@ namespace SQL_ThucHanh.GUI.SinhVien
                     string ID = textBoxMSSV.Text;
                     string Name = textBoxHoTen.Text;
                     _SinhVienBUS.addSV(ID, Name, MaLop);    
-                    MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     textBoxMSSV.Text = null;
                     textBoxHoTen.Text = null;
                 }
@@ -42,6 +39,18 @@ namespace SQL_ThucHanh.GUI.SinhVien
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void FormThemSV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode== Keys.Enter) 
+            {
+                button1_Click(sender, e);  
+            }
+            if (e.KeyCode== Keys.Escape)
+            {
+                this.Close();   
             }
         }
     }

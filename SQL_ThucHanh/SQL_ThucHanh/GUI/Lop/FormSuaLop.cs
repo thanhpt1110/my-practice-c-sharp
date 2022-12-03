@@ -40,5 +40,17 @@ namespace SQL_ThucHanh.GUI.Lop
                 }
             }
         }
+
+        private void FormSuaLop_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);   
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

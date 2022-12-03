@@ -32,8 +32,6 @@ namespace SQL_ThucHanh.GUI.Lop
                     string ID = textBoxMaLop.Text;
                     string Name = textBoxTenLop.Text;
                     _LopBUS.addLop(ID, Name);
-                    MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     textBoxMaLop.Text = null;
                     textBoxTenLop.Text = null;
@@ -42,6 +40,18 @@ namespace SQL_ThucHanh.GUI.Lop
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void FormThemLop_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
             }
         }
     }

@@ -42,5 +42,17 @@ namespace SQL_ThucHanh.GUI.SinhVien
                 }
             }
         }
+
+        private void FormSuaSV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);   
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();   
+            }
+        }
     }
 }

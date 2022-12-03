@@ -74,12 +74,14 @@ namespace SQL_ThucHanh.DAO
                 sql = "INSERT INTO SinhVien VALUES ('" + ID + "', N'" + Name + "', '" + MaLop + "')";
                 sqlCommand = new SqlCommand(sql, con);
                 sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 con.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
-                return;
+                MessageBox.Show("Đã tồn tại MSSV này. Vui lòng nhập lại!", "Cảnh báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

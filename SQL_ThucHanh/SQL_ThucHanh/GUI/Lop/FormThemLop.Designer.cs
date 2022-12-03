@@ -90,10 +90,12 @@
             this.Controls.Add(this.labelMaLop);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormThemLop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormThemLop";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormThemLop_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

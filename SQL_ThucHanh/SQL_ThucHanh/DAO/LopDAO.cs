@@ -81,11 +81,14 @@ namespace SQL_ThucHanh.DAO
                 sql = "INSERT INTO Lop VALUES ('"+ID+"', N'"+Name+"', "+0+")";
                 sqlCommand = new SqlCommand(sql, con);
                 sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 con.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã tồn tại mã lớp này. Vui lòng nhập lại!", "Cảnh báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

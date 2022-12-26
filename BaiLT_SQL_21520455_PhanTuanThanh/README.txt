@@ -1,4 +1,4 @@
-Hướng dẫn sử dụng:
+				HƯỚNG DẪN SỬ DỤNG
 
 Bước 1: Khởi động phần mềm SQL Server trên máy và chạy file "QueryIT008LT.sql"
 
@@ -12,12 +12,12 @@ Bước 4: Tại đây ta thấy mặc định sẽ hiển thị
 	</connectionStrings>
 
 `	=> Sửa "SV-TRƯỜNG-TIU" sau chữ "Data Source = " thành tên Server của máy bạn là được.
+	______________________________________________________________________________
+       	|   Nếu bạn chưa biết cách để lấy Server name thì đọc hướng dẫn dưới đây:     |
+	|	Bước 1: Khởi động phần mềm SQL Server trên máy			      |
+	|									      |
+	|	Bước 2: Phần mềm sẽ hiển thị ô cửa sổ nhỏ có tên Server name cần tìm. |
+	|	// Lưu ý: Phải chọn Authenciation: Windows Authenciation	      |
+	|_____________________________________________________________________________|
 
-
-# Nếu bạn chưa biết cách để lấy Server name thì đọc hướng dẫn dưới đây:
-Bước 1: Khởi động phần mềm SQL Server trên máy
-
-Bước 2: Phần mềm sẽ hiển thị ô cửa sổ nhỏ có tên Server name cần tìm.
-	// Lưu ý: Phải chọn Authenciation: Windows Authenciation
-
-## Phần cài đặt đã xong, bây giờ các bạn chỉ cần mở Visual Studio lên, build lại chương trình và chạy thôi.
+## Sau khi cài đặt đã xong, bây giờ các bạn chỉ cần mở Visual Studio lên, build lại chương trình và chạy thôi.

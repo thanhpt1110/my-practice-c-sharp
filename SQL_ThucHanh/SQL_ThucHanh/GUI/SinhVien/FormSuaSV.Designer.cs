@@ -38,6 +38,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(311, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 48);
@@ -90,6 +91,7 @@
             // 
             // FormSuaSV
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 407);
@@ -105,7 +107,6 @@
             this.Name = "FormSuaSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSuaSV";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormSuaSV_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

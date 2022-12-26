@@ -80,6 +80,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(289, 292);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 48);
@@ -90,6 +91,7 @@
             // 
             // FormThemSV
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 428);
@@ -105,7 +107,6 @@
             this.Name = "FormThemSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormThemSV";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormThemSV_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

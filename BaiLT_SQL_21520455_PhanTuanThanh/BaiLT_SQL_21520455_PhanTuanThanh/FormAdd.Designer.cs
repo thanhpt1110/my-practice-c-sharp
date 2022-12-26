@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelMSNV = new System.Windows.Forms.Label();
+            this.textBoxMSNV = new System.Windows.Forms.TextBox();
             this.dateTimePickerNgVL = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerNgSinh = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -36,8 +38,6 @@
             this.labelHoTen = new System.Windows.Forms.Label();
             this.textBoxHoTen = new System.Windows.Forms.TextBox();
             this.labelNgaySinh = new System.Windows.Forms.Label();
-            this.labelMSNV = new System.Windows.Forms.Label();
-            this.textBoxMSNV = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,32 +59,60 @@
             this.panel1.Size = new System.Drawing.Size(688, 478);
             this.panel1.TabIndex = 1;
             // 
+            // labelMSNV
+            // 
+            this.labelMSNV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMSNV.AutoSize = true;
+            this.labelMSNV.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMSNV.Location = new System.Drawing.Point(190, 77);
+            this.labelMSNV.Name = "labelMSNV";
+            this.labelMSNV.Size = new System.Drawing.Size(98, 25);
+            this.labelMSNV.TabIndex = 14;
+            this.labelMSNV.Text = "Mã số NV:";
+            // 
+            // textBoxMSNV
+            // 
+            this.textBoxMSNV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxMSNV.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMSNV.Location = new System.Drawing.Point(300, 69);
+            this.textBoxMSNV.Name = "textBoxMSNV";
+            this.textBoxMSNV.Size = new System.Drawing.Size(215, 33);
+            this.textBoxMSNV.TabIndex = 13;
+            // 
             // dateTimePickerNgVL
             // 
-            this.dateTimePickerNgVL.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNgVL.Location = new System.Drawing.Point(290, 286);
+            this.dateTimePickerNgVL.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerNgVL.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerNgVL.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNgVL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNgVL.Location = new System.Drawing.Point(300, 282);
             this.dateTimePickerNgVL.Name = "dateTimePickerNgVL";
-            this.dateTimePickerNgVL.Size = new System.Drawing.Size(214, 25);
+            this.dateTimePickerNgVL.Size = new System.Drawing.Size(150, 33);
             this.dateTimePickerNgVL.TabIndex = 12;
             // 
             // dateTimePickerNgSinh
             // 
+            this.dateTimePickerNgSinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePickerNgSinh.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerNgSinh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePickerNgSinh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNgSinh.Location = new System.Drawing.Point(290, 212);
+            this.dateTimePickerNgSinh.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerNgSinh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNgSinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNgSinh.Location = new System.Drawing.Point(300, 208);
             this.dateTimePickerNgSinh.Name = "dateTimePickerNgSinh";
             this.dateTimePickerNgSinh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerNgSinh.Size = new System.Drawing.Size(215, 25);
+            this.dateTimePickerNgSinh.Size = new System.Drawing.Size(150, 33);
             this.dateTimePickerNgSinh.TabIndex = 11;
             this.dateTimePickerNgSinh.Value = new System.DateTime(2022, 12, 2, 9, 38, 10, 0);
             // 
             // buttonSave
             // 
+            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSave.Location = new System.Drawing.Point(290, 352);
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(300, 366);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(88, 29);
+            this.buttonSave.Size = new System.Drawing.Size(106, 44);
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Lưu";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -92,56 +120,49 @@
             // 
             // labelNgayVaoLam
             // 
+            this.labelNgayVaoLam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNgayVaoLam.AutoSize = true;
+            this.labelNgayVaoLam.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNgayVaoLam.Location = new System.Drawing.Point(162, 290);
             this.labelNgayVaoLam.Name = "labelNgayVaoLam";
-            this.labelNgayVaoLam.Size = new System.Drawing.Size(109, 21);
+            this.labelNgayVaoLam.Size = new System.Drawing.Size(131, 25);
             this.labelNgayVaoLam.TabIndex = 7;
             this.labelNgayVaoLam.Text = "Ngày vào làm:";
             // 
             // labelHoTen
             // 
+            this.labelHoTen.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelHoTen.AutoSize = true;
+            this.labelHoTen.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoTen.Location = new System.Drawing.Point(212, 147);
             this.labelHoTen.Name = "labelHoTen";
-            this.labelHoTen.Size = new System.Drawing.Size(59, 21);
+            this.labelHoTen.Size = new System.Drawing.Size(72, 25);
             this.labelHoTen.TabIndex = 5;
             this.labelHoTen.Text = "Họ tên:";
             // 
             // textBoxHoTen
             // 
-            this.textBoxHoTen.Location = new System.Drawing.Point(290, 139);
+            this.textBoxHoTen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxHoTen.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHoTen.Location = new System.Drawing.Point(300, 139);
             this.textBoxHoTen.Name = "textBoxHoTen";
-            this.textBoxHoTen.Size = new System.Drawing.Size(214, 29);
+            this.textBoxHoTen.Size = new System.Drawing.Size(214, 33);
             this.textBoxHoTen.TabIndex = 4;
             // 
             // labelNgaySinh
             // 
+            this.labelNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNgaySinh.AutoSize = true;
+            this.labelNgaySinh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNgaySinh.Location = new System.Drawing.Point(188, 216);
             this.labelNgaySinh.Name = "labelNgaySinh";
-            this.labelNgaySinh.Size = new System.Drawing.Size(83, 21);
+            this.labelNgaySinh.Size = new System.Drawing.Size(100, 25);
             this.labelNgaySinh.TabIndex = 3;
             this.labelNgaySinh.Text = "Ngày sinh:";
             // 
-            // labelMSNV
-            // 
-            this.labelMSNV.AutoSize = true;
-            this.labelMSNV.Location = new System.Drawing.Point(190, 77);
-            this.labelMSNV.Name = "labelMSNV";
-            this.labelMSNV.Size = new System.Drawing.Size(81, 21);
-            this.labelMSNV.TabIndex = 14;
-            this.labelMSNV.Text = "Mã số NV:";
-            // 
-            // textBoxMSNV
-            // 
-            this.textBoxMSNV.Location = new System.Drawing.Point(290, 69);
-            this.textBoxMSNV.Name = "textBoxMSNV";
-            this.textBoxMSNV.Size = new System.Drawing.Size(215, 29);
-            this.textBoxMSNV.TabIndex = 13;
-            // 
             // FormAdd
             // 
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(688, 478);
@@ -151,6 +172,7 @@
             this.Name = "FormAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAdd";
+            this.Load += new System.EventHandler(this.FormAdd_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

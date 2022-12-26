@@ -54,6 +54,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(238, 146);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
@@ -65,6 +66,7 @@
             // 
             // FormSuaLop
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 238);
@@ -77,7 +79,6 @@
             this.Name = "FormSuaLop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSuaLop";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormSuaLop_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

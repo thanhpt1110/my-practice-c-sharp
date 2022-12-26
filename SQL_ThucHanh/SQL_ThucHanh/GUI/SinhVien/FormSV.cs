@@ -95,5 +95,24 @@ namespace SQL_ThucHanh
         {
             LoadData();
         }
+
+        private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int x = e.ColumnIndex, y = e.RowIndex;
+            if (y >= 0)
+            {
+                if (x == 4 || x == 5)
+                    grid.Cursor = Cursors.Hand;
+                else
+                    grid.Cursor = Cursors.Default;
+            }
+            if (y == -1 && x == 1 || y == -1 && x == 3)
+                grid.Cursor = Cursors.Hand;
+        }
+
+        private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            grid.Cursor = Cursors.Default;
+        }
     }
 }

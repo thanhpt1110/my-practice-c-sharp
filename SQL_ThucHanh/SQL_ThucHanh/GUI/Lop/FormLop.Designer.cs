@@ -1,4 +1,6 @@
-﻿namespace SQL_ThucHanh
+﻿using System.Windows.Forms;
+
+namespace SQL_ThucHanh
 {
     partial class FormLop
     {
@@ -29,7 +31,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLop));
             this.panelLabel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +70,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(347, 14);
+            this.label1.Location = new System.Drawing.Point(411, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 45);
@@ -90,19 +93,20 @@
             // 
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
+            this.grid.AllowUserToResizeColumns = false;
             this.grid.AllowUserToResizeRows = false;
             this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.grid.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grid.ColumnHeadersHeight = 50;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column1,
@@ -127,6 +131,8 @@
             this.grid.Size = new System.Drawing.Size(991, 374);
             this.grid.TabIndex = 0;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.grid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellMouseLeave);
+            this.grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_CellMouseMove);
             // 
             // column1
             // 
@@ -160,6 +166,9 @@
             // 
             // ColumnSuaLop
             // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            this.ColumnSuaLop.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnSuaLop.HeaderText = "Sửa lớp";
             this.ColumnSuaLop.Name = "ColumnSuaLop";
             this.ColumnSuaLop.ReadOnly = true;
@@ -187,7 +196,8 @@
             // buttonExit
             // 
             this.buttonExit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonExit.Location = new System.Drawing.Point(839, 22);
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExit.Location = new System.Drawing.Point(921, 8);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(90, 36);
             this.buttonExit.TabIndex = 2;
@@ -198,7 +208,8 @@
             // buttonAdd
             // 
             this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAdd.Location = new System.Drawing.Point(698, 22);
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.Location = new System.Drawing.Point(780, 8);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(90, 36);
             this.buttonAdd.TabIndex = 1;
@@ -209,7 +220,8 @@
             // buttonReload
             // 
             this.buttonReload.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonReload.Location = new System.Drawing.Point(552, 22);
+            this.buttonReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonReload.Location = new System.Drawing.Point(634, 8);
             this.buttonReload.Name = "buttonReload";
             this.buttonReload.Size = new System.Drawing.Size(90, 36);
             this.buttonReload.TabIndex = 0;
@@ -260,11 +272,11 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonReload;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.DataGridViewImageColumn column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTenLop;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSL;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnSuaLop;
-        private System.Windows.Forms.DataGridViewImageColumn ColumnXoaLop;
+        private DataGridViewImageColumn column1;
+        private DataGridViewTextBoxColumn ColumnLop;
+        private DataGridViewTextBoxColumn ColumnTenLop;
+        private DataGridViewTextBoxColumn ColumnSL;
+        private DataGridViewImageColumn ColumnSuaLop;
+        private DataGridViewImageColumn ColumnXoaLop;
     }
 }

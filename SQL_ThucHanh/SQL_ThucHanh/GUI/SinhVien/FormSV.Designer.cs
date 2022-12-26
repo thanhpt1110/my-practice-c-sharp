@@ -35,17 +35,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelDgv = new System.Windows.Forms.Panel();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.panelButton = new System.Windows.Forms.Panel();
-            this.buttonExit = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonReload = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSua = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnXoa = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panelButton = new System.Windows.Forms.Panel();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonReload = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelLabel.SuspendLayout();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
@@ -67,7 +67,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(264, 30);
+            this.label1.Location = new System.Drawing.Point(266, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 45);
@@ -89,6 +89,7 @@
             // 
             this.grid.AllowUserToAddRows = false;
             this.grid.AllowUserToDeleteRows = false;
+            this.grid.AllowUserToResizeColumns = false;
             this.grid.AllowUserToResizeRows = false;
             this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -99,7 +100,8 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.ColumnHeadersHeight = 50;
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.ColumnMSSV,
@@ -120,60 +122,8 @@
             this.grid.Size = new System.Drawing.Size(824, 312);
             this.grid.TabIndex = 0;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // panelButton
-            // 
-            this.panelButton.Controls.Add(this.buttonExit);
-            this.panelButton.Controls.Add(this.buttonAdd);
-            this.panelButton.Controls.Add(this.buttonReload);
-            this.panelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelButton.Location = new System.Drawing.Point(0, 459);
-            this.panelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(864, 102);
-            this.panelButton.TabIndex = 2;
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonExit.Location = new System.Drawing.Point(756, 37);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(90, 36);
-            this.buttonExit.TabIndex = 2;
-            this.buttonExit.Text = "Thoát";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAdd.Location = new System.Drawing.Point(615, 37);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(90, 36);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "Thêm";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonReload
-            // 
-            this.buttonReload.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonReload.Location = new System.Drawing.Point(469, 37);
-            this.buttonReload.Name = "buttonReload";
-            this.buttonReload.Size = new System.Drawing.Size(90, 36);
-            this.buttonReload.TabIndex = 0;
-            this.buttonReload.Text = "Tải lại";
-            this.buttonReload.UseVisualStyleBackColor = true;
-            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "chalkboard.png");
-            this.imageList1.Images.SetKeyName(1, "student.png");
-            this.imageList1.Images.SetKeyName(2, "settings.png");
-            this.imageList1.Images.SetKeyName(3, "delete.png");
+            this.grid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellMouseLeave);
+            this.grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_CellMouseMove);
             // 
             // Column1
             // 
@@ -194,6 +144,7 @@
             this.ColumnTen.HeaderText = "Họ và tên";
             this.ColumnTen.Name = "ColumnTen";
             this.ColumnTen.ReadOnly = true;
+            this.ColumnTen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColumnMaLop
             // 
@@ -208,7 +159,6 @@
             this.ColumnSua.Name = "ColumnSua";
             this.ColumnSua.ReadOnly = true;
             this.ColumnSua.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSua.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ColumnXoa
             // 
@@ -217,7 +167,63 @@
             this.ColumnXoa.Name = "ColumnXoa";
             this.ColumnXoa.ReadOnly = true;
             this.ColumnXoa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnXoa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // panelButton
+            // 
+            this.panelButton.Controls.Add(this.buttonExit);
+            this.panelButton.Controls.Add(this.buttonAdd);
+            this.panelButton.Controls.Add(this.buttonReload);
+            this.panelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelButton.Location = new System.Drawing.Point(0, 459);
+            this.panelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelButton.Name = "panelButton";
+            this.panelButton.Size = new System.Drawing.Size(864, 102);
+            this.panelButton.TabIndex = 2;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExit.Location = new System.Drawing.Point(754, 37);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(90, 36);
+            this.buttonExit.TabIndex = 2;
+            this.buttonExit.Text = "Thoát";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.Location = new System.Drawing.Point(615, 37);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(90, 36);
+            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonReload
+            // 
+            this.buttonReload.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonReload.Location = new System.Drawing.Point(469, 37);
+            this.buttonReload.Name = "buttonReload";
+            this.buttonReload.Size = new System.Drawing.Size(90, 36);
+            this.buttonReload.TabIndex = 0;
+            this.buttonReload.Text = "Tải lại";
+            this.buttonReload.UseVisualStyleBackColor = true;
+            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "chalkboard.png");
+            this.imageList1.Images.SetKeyName(1, "student.png");
+            this.imageList1.Images.SetKeyName(2, "settings.png");
+            this.imageList1.Images.SetKeyName(3, "delete.png");
             // 
             // FormSV
             // 

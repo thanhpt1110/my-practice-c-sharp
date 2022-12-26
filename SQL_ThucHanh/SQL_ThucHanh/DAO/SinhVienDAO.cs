@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -11,10 +11,7 @@ namespace SQL_ThucHanh.DAO
 {
     internal class SinhVienDAO
     {
-        string connectionString = @"Data Source=SV-TRƯỜNG-TIU;Initial Catalog=IT008;Integrated Security=True";
-        SqlConnection con;
-        SqlCommand sqlCommand = null;
-        string sql = null;
+        string connectionString = null, query = null;
         [Obsolete]
 
         public List<SinhVien> getAllSVByMaLop(string MaLop)
@@ -22,27 +19,32 @@ namespace SQL_ThucHanh.DAO
             List<SinhVien> listOfSV = new List<SinhVien>();
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "SELECT * FROM SinhVien WHERE MaLop = '"+MaLop+"'";
-                using (var command = new SqlCommand(sql, con))
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (var reader = command.ExecuteReader())
+                    connection.Open();
+                    query = "SELECT * FROM SinhVien WHERE MaLop = '" + MaLop + "'";
+                    using (var command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        using (var reader = command.ExecuteReader())
                         {
-                            string MSSV = reader["MSSV"].ToString();
-                            string TenLop = reader["TenSV"].ToString();
-                            SinhVien sv = new SinhVien(MSSV, TenLop, MaLop);
-                            listOfSV.Add(sv);
+                            while (reader.Read())
+                            {
+                                string MSSV = reader["MSSV"].ToString();
+                                string TenLop = reader["TenSV"].ToString();
+                                SinhVien sv = new SinhVien(MSSV, TenLop, MaLop);
+                                listOfSV.Add(sv);
+                            }
                         }
                     }
+                    connection.Close();
                 }
-                con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listOfSV;
         }
@@ -51,17 +53,23 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "DELETE FROM SinhVien WHERE MSSV = '" + ID + "'";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "DELETE FROM SinhVien WHERE MSSV = '" + ID + "'";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return;
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -69,14 +77,18 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "INSERT INTO SinhVien VALUES ('" + ID + "', N'" + Name + "', '" + MaLop + "')";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "INSERT INTO SinhVien VALUES ('" + ID + "', N'" + Name + "', '" + MaLop + "')";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception)
             {
@@ -89,17 +101,23 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "UPDATE SinhVien SET TenSV = N'" + Name + "', MaLop = '"+MaLop+"' WHERE MSSV = '" + ID + "'";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "UPDATE SinhVien SET TenSV = N'" + Name + "', MaLop = '"+MaLop+"' WHERE MSSV = '" + ID + "'";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                return;
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

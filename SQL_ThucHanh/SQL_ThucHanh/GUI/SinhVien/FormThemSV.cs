@@ -23,34 +23,25 @@ namespace SQL_ThucHanh.GUI.SinhVien
         SinhVienBUS _SinhVienBUS = new SinhVienBUS();
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Thêm sv mới vào DB?", "Thông báo",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            if (textBoxHoTen.Text == string.Empty || textBoxMSSV.Text == string.Empty)
             {
-                try
-                {
-                    string ID = textBoxMSSV.Text;
-                    string Name = textBoxHoTen.Text;
-                    _SinhVienBUS.addSV(ID, Name, MaLop);    
-                    textBoxMSSV.Text = null;
-                    textBoxHoTen.Text = null;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-        }
-
-        private void FormThemSV_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode== Keys.Enter) 
+            try
             {
-                button1_Click(sender, e);  
+                string ID = textBoxMSSV.Text;
+                string Name = textBoxHoTen.Text;
+                _SinhVienBUS.addSV(ID, Name, MaLop);
+                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            if (e.KeyCode== Keys.Escape)
+            catch (Exception ex)
             {
-                this.Close();   
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

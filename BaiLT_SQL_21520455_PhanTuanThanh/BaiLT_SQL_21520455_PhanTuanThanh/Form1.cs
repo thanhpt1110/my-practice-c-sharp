@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,32 +15,45 @@ namespace BaiLT_SQL_21520455_PhanTuanThanh
 {
     public partial class Form1 : Form
     {
+        string connectionString = null, query = null;
+        
         public Form1()
         {
             InitializeComponent();
-
         }
-
-        SqlConnection connection;
-        SqlCommand command;
-        string str = @"Data Source=SV-TRƯỜNG-TIU;Initial Catalog=IT008_Test;Integrated Security=True";
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable table = new DataTable();
 
         void loaddata()
         {
-            command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM NhanVien";
-            adapter.SelectCommand= command;
-            table.Clear();
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            try
+            {
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection (connectionString))
+                {
+                    connection.Open();
+                    query = "SELECT * FROM NhanVien";
+                    using (var command  = new SqlCommand (query, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        DataTable table = new DataTable();
+                        adapter.SelectCommand = command;
+                        table.Clear();
+                        adapter.Fill(table);
+                        dataGridView1.DataSource = table;
+                    }
+                    connection.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            connection = new SqlConnection(str); 
-            connection.Open();
+            this.ActiveControl = labelMSNV;
             loaddata();
         }
 
@@ -62,10 +76,29 @@ namespace BaiLT_SQL_21520455_PhanTuanThanh
                                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
-                command.Connection.CreateCommand();
-                command.CommandText = "DELETE FROM NhanVien WHERE MSNV = '" + textBoxMSNV.Text + "'";
-                command.ExecuteNonQuery();
-                loaddata();
+                try
+                {
+                    ConnectDB con = new ConnectDB();
+                    connectionString = con.getConnectionString();
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        query = "DELETE FROM NhanVien WHERE MSNV = '" + textBoxMSNV.Text + "'";
+                        using (var command = new SqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                    loaddata();
+                    MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -75,15 +108,34 @@ namespace BaiLT_SQL_21520455_PhanTuanThanh
                                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
-                string msnv = textBoxMSNV.Text;
-                string Ten = textBoxHoTen.Text;
-                DateTime NgSinh = DateTime.Parse(dateTimePickerNgSinh.Text);
-                DateTime NgVL = DateTime.Parse(dateTimePickerNgVL.Text);
+                try
+                {
+                    string msnv = textBoxMSNV.Text;
+                    string Ten = textBoxHoTen.Text;
+                    DateTime NgSinh = DateTime.Parse(dateTimePickerNgSinh.Text);
+                    DateTime NgVL = DateTime.Parse(dateTimePickerNgVL.Text);
 
-                command.Connection.CreateCommand();
-                command.CommandText = "UPDATE NhanVien SET HoTen = N'"+Ten+"', NgSinh = '"+NgSinh+"', NgVL = '"+NgVL+"' WHERE MSNV = '" + msnv + "'";
-                command.ExecuteNonQuery();
-                loaddata();
+                    ConnectDB con = new ConnectDB();
+                    connectionString = con.getConnectionString();
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        query = "UPDATE NhanVien SET HoTen = N'" + Ten + "', NgSinh = '" + NgSinh + "', NgVL = '" + NgVL + "' WHERE MSNV = '" + msnv + "'";
+                        using (var command = new SqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+                    loaddata();
+                    MessageBox.Show("Sửa dữ liệu thành công!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }   
         }
 

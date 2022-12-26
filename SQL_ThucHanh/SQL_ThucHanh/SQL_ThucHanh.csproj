@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <Compile Include="BUS\LopBUS.cs" />
     <Compile Include="BUS\SinhVienBUS.cs" />
+    <Compile Include="ConnectDB.cs" />
     <Compile Include="DAO\LopDAO.cs" />
     <Compile Include="DAO\SinhVienDAO.cs" />
     <Compile Include="GUI\Lop\FormLop.cs">

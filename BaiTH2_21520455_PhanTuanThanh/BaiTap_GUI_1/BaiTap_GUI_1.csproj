@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinAPI.cs" />
     <EmbeddedResource Include="FormDanhSach.resx">
       <DependentUpon>FormDanhSach.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,8 +22,14 @@ namespace SQL_ThucHanh.GUI.Lop
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLop.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn sửa không?", "Cảnh báo",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -36,20 +42,9 @@ namespace SQL_ThucHanh.GUI.Lop
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-        private void FormSuaLop_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button1_Click(sender, e);   
-            }
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
             }
         }
     }

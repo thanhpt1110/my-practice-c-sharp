@@ -7,50 +7,69 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Xml.Linq;
 
 namespace SQL_ThucHanh.DAO
 {
     internal class LopDAO
     {
-        string connectionString = @"Data Source=SV-TRƯỜNG-TIU;Initial Catalog=IT008;Integrated Security=True";
-        SqlConnection con;
-        SqlCommand sqlCommand = null;
-        string sql = null;
+        string connectionString = null, query = null;
         [Obsolete]
 
         public List<Lop> getAllLop()
         {
-            List<Lop> listOfLop = new List<Lop>();
             // Update before Select all
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "UPDATE Lop SET SL = (SELECT COUNT(MSSV) FROM SinhVien WHERE SinhVien.MaLop = Lop.MaLop GROUP BY SinhVien.MaLop)";               
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                    
-
-                sql = "SELECT * FROM Lop";
-                using (var command = new SqlCommand(sql, con))
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (var reader = command.ExecuteReader())
+                    connection.Open();
+                    query = "UPDATE Lop SET SL = (SELECT COUNT(MSSV) FROM SinhVien WHERE SinhVien.MaLop = Lop.MaLop GROUP BY SinhVien.MaLop)";
+                    using (var command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
-                        {
-                            string MaLop = reader["MaLop"].ToString();
-                            string TenLop = reader["TenLop"].ToString();
-                            int SL = (reader["SL"]) == DBNull.Value ? 0 : Convert.ToInt32(reader["SL"]);
-                            Lop lop = new Lop(MaLop, TenLop, SL);
-                            listOfLop.Add(lop);
-                        }
+                        command.ExecuteNonQuery();
                     }
+                    connection.Close();
                 }
-                con.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            List<Lop> listOfLop = new List<Lop>();
+            try
+            {
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "SELECT * FROM Lop";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string MaLop = reader["MaLop"].ToString();
+                                string TenLop = reader["TenLop"].ToString();
+                                int SL = (reader["SL"]) == DBNull.Value ? 0 : Convert.ToInt32(reader["SL"]);
+                                Lop lop = new Lop(MaLop, TenLop, SL);
+                                listOfLop.Add(lop);
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listOfLop;
         }
@@ -59,16 +78,23 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "DELETE FROM Lop WHERE MaLop = '"+ID+"'";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "DELETE FROM Lop WHERE MaLop = '"+ID+"'";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -76,19 +102,23 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "INSERT INTO Lop VALUES ('"+ID+"', N'"+Name+"', "+0+")";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "INSERT INTO Lop VALUES ('" + ID + "', N'" + Name + "', " + 0 + ")";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Đã tồn tại mã lớp này. Vui lòng nhập lại!", "Cảnh báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -96,16 +126,23 @@ namespace SQL_ThucHanh.DAO
         {
             try
             {
-                con = new SqlConnection(connectionString);
-                con.Open();
-                sql = "UPDATE Lop SET TenLop = N'"+Name+"' WHERE MaLop = '"+ID+"'";
-                sqlCommand = new SqlCommand(sql, con);
-                sqlCommand.ExecuteNonQuery();
-                con.Close();
+                ConnectDB con = new ConnectDB();
+                connectionString = con.getConnectionString();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    query = "UPDATE Lop SET TenLop = N'" + Name + "' WHERE MaLop = '" + ID + "'";
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

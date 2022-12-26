@@ -23,35 +23,25 @@ namespace SQL_ThucHanh.GUI.Lop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Thêm lớp mới vào DB?", "Thông báo",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            if (textBoxMaLop.Text == string.Empty || textBoxTenLop.Text == string.Empty)
             {
-                try
-                {
-                    string ID = textBoxMaLop.Text;
-                    string Name = textBoxTenLop.Text;
-                    _LopBUS.addLop(ID, Name);
-
-                    textBoxMaLop.Text = null;
-                    textBoxTenLop.Text = null;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-        }
-
-        private void FormThemLop_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                button1_Click(sender, e);
-            }
-            if (e.KeyCode == Keys.Escape)
-            {
+                string ID = textBoxMaLop.Text;
+                string Name = textBoxTenLop.Text;
+                _LopBUS.addLop(ID, Name);
+                MessageBox.Show("Thêm dữ liệu thành công! Vui lòng tải lại để xem dữ liệu.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

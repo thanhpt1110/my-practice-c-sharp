@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePickerNgVL = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerNgSinh = new System.Windows.Forms.DateTimePicker();
@@ -69,30 +70,34 @@
             // 
             // dateTimePickerNgVL
             // 
-            this.dateTimePickerNgVL.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNgVL.Location = new System.Drawing.Point(450, 119);
+            this.dateTimePickerNgVL.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerNgVL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNgVL.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNgVL.Location = new System.Drawing.Point(519, 113);
             this.dateTimePickerNgVL.Name = "dateTimePickerNgVL";
-            this.dateTimePickerNgVL.Size = new System.Drawing.Size(214, 25);
+            this.dateTimePickerNgVL.Size = new System.Drawing.Size(145, 29);
             this.dateTimePickerNgVL.TabIndex = 12;
             // 
             // dateTimePickerNgSinh
             // 
             this.dateTimePickerNgSinh.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerNgSinh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePickerNgSinh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNgSinh.Location = new System.Drawing.Point(114, 119);
+            this.dateTimePickerNgSinh.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerNgSinh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNgSinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNgSinh.Location = new System.Drawing.Point(114, 113);
             this.dateTimePickerNgSinh.Name = "dateTimePickerNgSinh";
             this.dateTimePickerNgSinh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerNgSinh.Size = new System.Drawing.Size(215, 25);
+            this.dateTimePickerNgSinh.Size = new System.Drawing.Size(145, 29);
             this.dateTimePickerNgSinh.TabIndex = 11;
             this.dateTimePickerNgSinh.Value = new System.DateTime(2022, 12, 2, 9, 38, 10, 0);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUpdate.Location = new System.Drawing.Point(339, 181);
+            this.buttonUpdate.Location = new System.Drawing.Point(339, 168);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(88, 29);
+            this.buttonUpdate.Size = new System.Drawing.Size(88, 42);
             this.buttonUpdate.TabIndex = 10;
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -101,9 +106,9 @@
             // buttonAdd
             // 
             this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.Location = new System.Drawing.Point(114, 181);
+            this.buttonAdd.Location = new System.Drawing.Point(114, 168);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 29);
+            this.buttonAdd.Size = new System.Drawing.Size(88, 42);
             this.buttonAdd.TabIndex = 9;
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -112,9 +117,9 @@
             // buttonDelete
             // 
             this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDelete.Location = new System.Drawing.Point(564, 181);
+            this.buttonDelete.Location = new System.Drawing.Point(576, 168);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(88, 29);
+            this.buttonDelete.Size = new System.Drawing.Size(88, 42);
             this.buttonDelete.TabIndex = 8;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -123,7 +128,7 @@
             // labelNgayVaoLam
             // 
             this.labelNgayVaoLam.AutoSize = true;
-            this.labelNgayVaoLam.Location = new System.Drawing.Point(335, 119);
+            this.labelNgayVaoLam.Location = new System.Drawing.Point(385, 119);
             this.labelNgayVaoLam.Name = "labelNgayVaoLam";
             this.labelNgayVaoLam.Size = new System.Drawing.Size(109, 21);
             this.labelNgayVaoLam.TabIndex = 7;
@@ -132,7 +137,7 @@
             // labelHoTen
             // 
             this.labelHoTen.AutoSize = true;
-            this.labelHoTen.Location = new System.Drawing.Point(335, 39);
+            this.labelHoTen.Location = new System.Drawing.Point(385, 44);
             this.labelHoTen.Name = "labelHoTen";
             this.labelHoTen.Size = new System.Drawing.Size(59, 21);
             this.labelHoTen.TabIndex = 5;
@@ -140,15 +145,15 @@
             // 
             // textBoxHoTen
             // 
-            this.textBoxHoTen.Location = new System.Drawing.Point(450, 36);
+            this.textBoxHoTen.Location = new System.Drawing.Point(454, 36);
             this.textBoxHoTen.Name = "textBoxHoTen";
-            this.textBoxHoTen.Size = new System.Drawing.Size(214, 29);
+            this.textBoxHoTen.Size = new System.Drawing.Size(210, 29);
             this.textBoxHoTen.TabIndex = 4;
             // 
             // labelNgaySinh
             // 
             this.labelNgaySinh.AutoSize = true;
-            this.labelNgaySinh.Location = new System.Drawing.Point(25, 119);
+            this.labelNgaySinh.Location = new System.Drawing.Point(25, 121);
             this.labelNgaySinh.Name = "labelNgaySinh";
             this.labelNgaySinh.Size = new System.Drawing.Size(83, 21);
             this.labelNgaySinh.TabIndex = 3;
@@ -157,7 +162,7 @@
             // labelMSNV
             // 
             this.labelMSNV.AutoSize = true;
-            this.labelMSNV.Location = new System.Drawing.Point(25, 36);
+            this.labelMSNV.Location = new System.Drawing.Point(25, 44);
             this.labelMSNV.Name = "labelMSNV";
             this.labelMSNV.Size = new System.Drawing.Size(81, 21);
             this.labelMSNV.TabIndex = 1;
@@ -165,10 +170,10 @@
             // 
             // textBoxMSNV
             // 
-            this.textBoxMSNV.Location = new System.Drawing.Point(114, 33);
+            this.textBoxMSNV.Location = new System.Drawing.Point(114, 36);
             this.textBoxMSNV.Name = "textBoxMSNV";
             this.textBoxMSNV.ReadOnly = true;
-            this.textBoxMSNV.Size = new System.Drawing.Size(215, 29);
+            this.textBoxMSNV.Size = new System.Drawing.Size(210, 29);
             this.textBoxMSNV.TabIndex = 0;
             // 
             // panel2
@@ -185,10 +190,20 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;

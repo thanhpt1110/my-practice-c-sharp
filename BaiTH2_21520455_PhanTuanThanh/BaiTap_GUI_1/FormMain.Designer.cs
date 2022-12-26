@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelName = new System.Windows.Forms.Panel();
             this.labelName = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.buttonDanhSachSV = new System.Windows.Forms.Button();
             this.panelForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelName.SuspendLayout();
             this.panelSidebar.SuspendLayout();
             this.panelForm.SuspendLayout();
@@ -202,11 +204,10 @@
             // 
             this.panelForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(219)))), ((int)(((byte)(223)))));
             this.panelForm.Controls.Add(this.pictureBox1);
-            this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForm.Location = new System.Drawing.Point(293, 93);
+            this.panelForm.Location = new System.Drawing.Point(288, 93);
             this.panelForm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(861, 558);
+            this.panelForm.Size = new System.Drawing.Size(866, 558);
             this.panelForm.TabIndex = 2;
             // 
             // pictureBox1
@@ -215,10 +216,16 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(861, 558);
+            this.pictureBox1.Size = new System.Drawing.Size(866, 558);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormMain
             // 
@@ -260,5 +267,6 @@
         private System.Windows.Forms.Button buttonXoaSinhVien;
         private System.Windows.Forms.Button buttonThemSV;
         private System.Windows.Forms.Button buttonTimSV;
+        private System.Windows.Forms.Timer timer1;
     }
 }

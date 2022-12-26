@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 
 namespace BaiTap_GUI_1
 {
@@ -25,7 +26,7 @@ namespace BaiTap_GUI_1
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            //childForm.Dock = DockStyle.Fill;
+            childForm.Dock = DockStyle.Fill;
             panelForm.Controls.Add(childForm);
             panelForm.Tag = childForm;
             childForm.BringToFront();
@@ -34,6 +35,8 @@ namespace BaiTap_GUI_1
 
         private void buttonDanhSachSV_Click(object sender, EventArgs e)
         {
+            customPanel();
+            timer1.Start();
             disableButtonSidebar();
             openChildForm(new FormDanhSach());
             activateButtonSidebar(sender);
@@ -104,9 +107,16 @@ namespace BaiTap_GUI_1
                 activeForm.Close();
         }
 
+        private void customPanel()
+        {
+            panelForm.Size = new Size(10, 558);
+        }
+
         // Custom design for cursors
         private void FormMain_Load(object sender, EventArgs e)
         {
+            int time = 500;
+            WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
             this.labelName.Cursor = Cursors.Hand;
             this.buttonDanhSachSV.Cursor = Cursors.Hand;
             this.buttonTimSV.Cursor = Cursors.Hand;
@@ -114,6 +124,18 @@ namespace BaiTap_GUI_1
             this.buttonXoaSinhVien.Cursor = Cursors.Hand;
             this.buttonSuaThongTin.Cursor = Cursors.Hand;
             this.buttonThoat.Cursor = Cursors.Hand;
+            timer1.Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int maxWidth = 861;
+            panelForm.Width += 100;
+            if (panelForm.Width >= maxWidth)
+            {
+                timer1.Stop();
+                this.Refresh();
+            }
         }
     }
 }

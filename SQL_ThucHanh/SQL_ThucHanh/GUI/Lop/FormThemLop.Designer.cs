@@ -37,6 +37,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(257, 285);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 39);
@@ -81,6 +82,7 @@
             // 
             // FormThemLop
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 372);
@@ -95,7 +97,6 @@
             this.Name = "FormThemLop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormThemLop";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormThemLop_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
